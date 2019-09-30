@@ -7,7 +7,8 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: ''
     };
   }
 
@@ -20,10 +21,19 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <CardList monsters={this.state.monsters} />
+        <input type='search' placeholder='search monster'
+        onChange={e => this.setState({ searchField: e.target.value })
+        }
+        />
+        <CardList monsters={this.state.monsters} /> 
       </div>
     );
   }
 }
 
+// The componentDidMount function makes an API call using fetch .then response represents a response to that fetch .then the users(state) is changed using the setState() method passing in monsters with the property of users 
+
+// in line 23 we passed in an attribute to the CardList component state monsters={this.state.monsters} from up line 9. The CardList component recieves it as a prop
+
 export default App;
+
