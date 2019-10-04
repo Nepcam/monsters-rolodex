@@ -9,7 +9,8 @@ class App extends Component {
 
     this.state = {
       monsters: [],
-      searchField: ''
+      searchField: '',
+      title: ''
     };
 
     // this.handleChange = this.handleChange.bind(this);
@@ -19,6 +20,10 @@ class App extends Component {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(response => response.json())
       .then(users => this.setState({ monsters: users }));
+  }
+
+  onSearchChange = event => {
+    this.setState({ searchield: event.target.value, title: event.target.value })
   }
 
   handleChange = (e) => {
